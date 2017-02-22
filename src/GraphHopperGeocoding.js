@@ -1,6 +1,6 @@
-var request = require('superagent');
+import * as request from 'superagent';
+import GHUtil from 'GHUtil'
 
-var GHUtil = require("./GHUtil");
 var ghUtil = new GHUtil();
 
 GraphHopperGeocoding = function (args) {

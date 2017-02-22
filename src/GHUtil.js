@@ -93,4 +93,4 @@ GHUtil.prototype.extractError = function (res, url) {
     };
 };
 
-module.exports = GHUtil;
+export GHUtil as 'GHUtil';

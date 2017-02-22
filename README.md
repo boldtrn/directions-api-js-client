@@ -13,6 +13,9 @@ Install the lib with npm:
 ```npm install graphhopper-js-api-client --save```
 
 You can either require the whole client enabling you to use every GraphHopper API, but you can alos only require the pieces you need.
+You should be aware that the dist folder contains transpiled ES5 js code, whereas the src folder contains ES6 code. 
+Therefore, if you require files from the src folder, your environment should be ES6 compatible.
+
 ```
  require('graphhopper-js-api-client');
  // If you only need e.g. Routing, you can only require the needed parts
@@ -44,6 +47,7 @@ You can either require the whole client enabling you to use every GraphHopper AP
 ## Dependencies
 
 The API depends on superagent which is packaged into the graphhopper-client.js.
+We are using Promises but include a polyfill for it using babel-runtime.
 
 The demo uses a couple of dependencies, but they are not required for requests to the API.
 

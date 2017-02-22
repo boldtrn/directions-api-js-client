@@ -6,10 +6,9 @@
   "license": "Apache-2.0",
   "main": "dist/graphhopper-client.js",
   "scripts": {
-    "watch": "watchify src/main-template.js -o dist/graphhopper-client.js --debug --verbose",
-    "bundle": "browserify src/main-template.js -o dist/graphhopper-client.js",
-    "bundleDebug": "browserify src/main-template.js --debug -o dist/graphhopper-client.js",
-    "bundleProduction": "browserify -g uglifyify src/main-template.js | derequire > dist/graphhopper-client.js",
+    "watch": "watchify src/main-template.js -t babelify -o dist/graphhopper-client.js --debug --verbose",
+    "bundleT": "browserify src/main-template.js -t babelify > dist/graphhopper-client.js",
+    "bundleProduction": "browserify -t babelify -g uglifyify src/main-template.js | derequire > dist/graphhopper-client.js",
     "test": "JASMINE_CONFIG_PATH=spec/jasmine.json jasmine"
   },
   "browserify": {
@@ -18,13 +17,17 @@
     ]
   },
   "dependencies": {
+    "babel-runtime": "^6.23.0",
     "superagent": "3.4.2"
   },
   "devDependencies": {
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-env": "^1.1.8",
+    "babelify": "^7.3.0",
     "browserify": "14.1.0",
     "browserify-swap": "0.2.2",
     "derequire": "^2.0.6",
-    "jasmine": "2.5.3",
+    "jasmine-es6": "^0.4.0",
     "jshint": "2.9.4",
     "uglifyify": "3.0.4",
     "watchify": "3.9.0"
